@@ -1,32 +1,28 @@
 package io.better_banking.web.controller;
 
-import io.better_banking.repository.TransactionRepository;
-import io.better_banking.service.TransactionService;
+import io.better_banking.BetterBankingApplication;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
 
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 
+@ActiveProfiles("test")
+@SpringBootTest(classes = {BetterBankingApplication.class})
 public class TransactionComponentTest {
 
     @LocalServerPort
     private int port;
 
-    @Mock
-    private TransactionRepository transactionRepository;
-
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
+    @Autowired
+    private TransactionController transactionController;
 
     @Test
     public void testApplicationEndToEnd() {
-        given().standaloneSetup(new TransactionController(new TransactionService(transactionRepository)))
+        given().standaloneSetup(transactionController)
                 .when()
                 .get(String.format("http://localhost:%s/api/v1/transactions/1234567", port))
                 .then()

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:mariadb:10.3:///bbdb?TC_INITSCRIPT=file:src/test/resources/init.sql
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+local:
+  server:
+    port: 23133
