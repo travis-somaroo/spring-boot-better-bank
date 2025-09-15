@@ -16,7 +16,8 @@ public class TransactionServiceTest {
     private TransactionService transactionService;
 
     @Test
-    public void testTransactionCount() {
+    public void testTransactionCount() throws InterruptedException {
         assertEquals(2, transactionService.findAllByAccountNumber(1234567).size());
+//        Thread.sleep(600000);
     }
 }
