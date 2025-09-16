@@ -76,7 +76,7 @@
             <version>0.2.1</version>
         </dependency>
 
-        <!-- needed for api spec generation-->
+        <!-- Needed for api spec generation-->
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
