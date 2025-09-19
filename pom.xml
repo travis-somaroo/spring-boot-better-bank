@@ -90,6 +90,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Resilience4j -->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot2</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
         <!-- Webflux -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

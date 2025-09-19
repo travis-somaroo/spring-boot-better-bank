@@ -32,6 +32,7 @@ public class TransactionDto {
                 .type(transaction.getType())
                 .accountNumber(transaction.getAccountNumber())
                 .currency(transaction.getCurrency())
+                .date(transaction.getDate())
                 .amount(transaction.getAmount())
                 .merchantName(transaction.getMerchantName())
                 .merchantLogo(transaction.getMerchantLogo())
