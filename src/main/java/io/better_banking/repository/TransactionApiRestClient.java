@@ -20,12 +20,12 @@ public class TransactionApiRestClient implements TransactionApiClient {
 
     private final OBTransactionAdapter adapter;
 
-    private final WebClient.Builder webClientBuilder;
+    private final WebClient client;
 
     @Override
     public List<Transaction> findAllByAccountNumber(final Integer accountNumber) {
         try {
-            OBReadTransaction6 res = webClientBuilder.build()
+            OBReadTransaction6 res = client
                     .get()
                     .uri("accounts/{accountNumber}/transactions", accountNumber)
                     .retrieve()
